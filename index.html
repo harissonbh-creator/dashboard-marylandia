@@ -9,8 +9,6 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Inter',Arial,sans-serif;background:#f4f6f9;color:#1a2233;min-height:100vh}
 .mono{font-family:'DM Mono',monospace}
-
-/* ---------- LOGIN ---------- */
 #login-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;background:linear-gradient(135deg,#0f2942,#185fa5)}
 .lcard{background:#fff;border-radius:16px;padding:40px 36px;width:340px;box-shadow:0 20px 60px rgba(0,0,0,.3);text-align:center}
 .lbadge{width:64px;height:64px;border-radius:14px;margin:0 auto 16px;background:linear-gradient(135deg,#185fa5,#276749);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'DM Mono',monospace;font-weight:500;font-size:20px;letter-spacing:1px}
@@ -23,8 +21,6 @@ body{font-family:'Inter',Arial,sans-serif;background:#f4f6f9;color:#1a2233;min-h
 #login-btn{width:100%;padding:11px;border:none;border-radius:8px;background:#185fa5;color:#fff;font-weight:600;font-size:14px;cursor:pointer;margin-top:8px;transition:background .15s}
 #login-btn:hover{background:#124a83}
 #login-error{color:#c0392b;font-size:12px;margin-top:10px;display:none}
-
-/* ---------- APP ---------- */
 #app{display:none;min-height:100vh}
 header{background:#fff;border-bottom:1px solid #e5e9ee;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .header-left{display:flex;align-items:center;gap:14px}
@@ -33,14 +29,21 @@ header{background:#fff;border-bottom:1px solid #e5e9ee;padding:16px 28px;display
 .brand-title{font-family:'DM Mono',monospace;font-size:19px;font-weight:500;letter-spacing:.5px;text-transform:uppercase;color:#1a2233}
 .brand-sub{font-size:11px;color:#5a6578;font-family:'DM Mono',monospace}
 .header-right{display:flex;align-items:center;gap:10px}
-.status-pill{background:#e8f7ef;color:#1e7d4a;border:1px solid #c5ecd6;padding:7px 14px;border-radius:20px;font-size:12px;font-weight:600;display:flex;align-items:center;gap:7px}
+.status-pill{background:#e8f7ef;color:#1e7d4a;border:1px solid #c5ecd6;padding:7px 14px;border-radius:20px;font-size:12px;font-weight:600;display:flex;align-items:center;gap:7px;white-space:nowrap}
+.status-pill.open{background:#eef4fb;color:#185fa5;border-color:#cfe0f4}
 .status-dot{width:7px;height:7px;border-radius:50%;background:#1e7d4a}
+.status-pill.open .status-dot{background:#185fa5;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 .wa-btn{background:#25d366;color:#fff;border:none;padding:9px 16px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px;transition:background .15s}
 .wa-btn:hover{background:#1eb959}
 .logout-btn{background:none;border:1px solid #e2e6ea;color:#5a6578;padding:8px 14px;border-radius:20px;font-size:12px;cursor:pointer;font-weight:600}
 .logout-btn:hover{background:#f4f6f9}
-
-/* ---------- TABS ---------- */
+.month-bar{background:#0f2942;padding:0 28px;display:flex;align-items:center;gap:2px;overflow-x:auto}
+.month-btn{padding:12px 20px;border:none;background:none;font-size:13px;font-weight:700;color:#8fa3bd;cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;transition:all .15s;font-family:'DM Mono',monospace;letter-spacing:.4px}
+.month-btn.active{color:#fff;border-bottom-color:#00e5a0}
+.month-btn:hover:not(.active){color:#cfe0f4}
+.month-btn .dot{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:6px;background:#00e5a0}
+.month-btn.is-open .dot{background:#ffd54f}
 .tabs{display:flex;gap:4px;padding:0 28px;background:#fff;border-bottom:1px solid #e5e9ee;overflow-x:auto}
 .tab-btn{padding:14px 18px;border:none;background:none;font-size:13px;font-weight:600;color:#8b95a5;cursor:pointer;border-bottom:2.5px solid transparent;white-space:nowrap;transition:all .15s}
 .tab-btn.active{color:#185fa5;border-bottom-color:#185fa5}
@@ -49,8 +52,6 @@ main{padding:26px 28px 50px;max-width:1360px;margin:0 auto}
 .tab-content{display:none}
 .tab-content.active{display:block;animation:fadein .25s ease}
 @keyframes fadein{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
-
-/* ---------- KPI ---------- */
 .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
 .kpi-card{background:#fff;border-radius:14px;padding:20px;border:1px solid #e5e9ee}
 .kpi-label{font-size:11px;color:#8b95a5;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px}
@@ -59,13 +60,9 @@ main{padding:26px 28px 50px;max-width:1360px;margin:0 auto}
 .kpi-badge{display:inline-block;margin-top:10px;font-size:11px;font-weight:700;padding:4px 9px;border-radius:6px;background:#eef4fb;color:#185fa5}
 .kpi-badge.green{background:#e8f7ef;color:#1e7d4a}
 .kpi-badge.warn{background:#fff8e1;color:#a67c00}
-
-/* ---------- CARD / TABLE ---------- */
+.kpi-badge.red{background:#fdeaea;color:#c0392b}
 .card{background:#fff;border-radius:14px;border:1px solid #e5e9ee;padding:22px;margin-bottom:20px}
 .card-title{font-size:14px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
-.card-title .tag{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:700}
-.tag-mm{background:#e7f0fa;color:#185fa5}
-.tag-br{background:#e6f3ec;color:#276749}
 table{width:100%;border-collapse:collapse;font-size:13px}
 th{text-align:left;padding:9px 10px;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:#8b95a5;border-bottom:2px solid #eef1f4;font-weight:700}
 td{padding:9px 10px;border-bottom:1px solid #f0f2f5;font-family:'DM Mono',monospace;font-size:12.5px}
@@ -77,20 +74,25 @@ tr:hover td{background:#fafbfc}
 .bold-row td{font-weight:700;background:#f8f9fb;border-top:2px solid #e5e9ee}
 .two-col{display:grid;grid-template-columns:1.4fr 1fr;gap:20px}
 @media(max-width:900px){.two-col{grid-template-columns:1fr}.kpi-grid{grid-template-columns:repeat(2,1fr)}}
-
-/* ---------- CHART ---------- */
-.chart-wrap{overflow-x:auto}
-.bars{display:flex;align-items:flex-end;gap:5px;height:220px;padding:10px 0;min-width:640px}
-.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:16px}
-.bar-stack{width:100%;max-width:22px;display:flex;flex-direction:column-reverse;height:180px;border-radius:3px 3px 0 0;overflow:hidden}
-.bar-mm{background:#185fa5}
-.bar-br{background:#276749}
-.bar-label{font-size:9px;color:#9aa3b0;font-family:'DM Mono',monospace;transform:rotate(0deg)}
+.chart-wrap{overflow-x:auto;position:relative}
+.bars{display:flex;align-items:flex-end;gap:5px;height:220px;padding:10px 0;min-width:400px}
+.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:16px;cursor:pointer;position:relative}
+.bar-stack{width:100%;max-width:22px;display:flex;flex-direction:column-reverse;height:180px;border-radius:3px 3px 0 0;overflow:hidden;transition:transform .12s ease, filter .12s ease}
+.bar-col:hover .bar-stack{transform:scaleY(1.015) translateY(0);filter:brightness(1.12);box-shadow:0 2px 10px rgba(0,0,0,.18)}
+.bar-mm{background:#185fa5;transition:background .12s}
+.bar-br{background:#276749;transition:background .12s}
+.bar-label{font-size:9px;color:#9aa3b0;font-family:'DM Mono',monospace}
+.bar-col.selected .bar-label{color:#1a2233;font-weight:700}
 .legend{display:flex;gap:16px;margin-top:14px;font-size:12px;color:#5a6578}
 .legend span{display:flex;align-items:center;gap:6px}
 .legend .sw{width:10px;height:10px;border-radius:2px}
-
-/* ---------- RANKING ---------- */
+#chart-tooltip{position:fixed;background:#1a2233;color:#fff;padding:10px 13px;border-radius:8px;font-size:11.5px;font-family:'DM Mono',monospace;pointer-events:none;opacity:0;transition:opacity .1s;z-index:200;box-shadow:0 8px 24px rgba(0,0,0,.3);white-space:nowrap}
+#chart-tooltip.show{opacity:1}
+#chart-tooltip .tt-day{font-weight:700;color:#fff;margin-bottom:6px;font-family:'Inter',sans-serif;font-size:12px}
+#chart-tooltip .tt-row{display:flex;justify-content:space-between;gap:14px;align-items:center}
+#chart-tooltip .tt-row .sw{width:8px;height:8px;border-radius:2px;display:inline-block;margin-right:6px}
+.chart-detail{margin-top:10px;font-size:11.5px;color:#5a6578;font-family:'DM Mono',monospace;min-height:16px}
+.chart-detail span{color:#1a2233;font-weight:700}
 .rank-item{display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-bottom:1px solid #f0f2f5}
 .rank-item:last-child{border-bottom:none}
 .rank-name{font-size:13px;font-weight:600}
@@ -98,30 +100,19 @@ tr:hover td{background:#fafbfc}
 .rank-val{text-align:right}
 .rank-lb{font-family:'DM Mono',monospace;font-weight:700;font-size:13px;color:#276749}
 .rank-margin{font-size:11px;color:#8b95a5}
-
-/* ---------- ALERTS ---------- */
-.alert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-@media(max-width:900px){.alert-grid{grid-template-columns:1fr}}
-.alert-card{background:#fff;border-radius:12px;border:1px solid #e5e9ee;padding:16px;border-left:4px solid var(--ac,#185fa5);display:flex;gap:12px}
-.alert-icon{font-size:20px}
-.alert-title{font-size:13px;font-weight:700;margin-bottom:4px}
-.alert-text{font-size:12px;color:#5a6578;line-height:1.5}
-
 .note{font-size:11.5px;color:#8b95a5;margin-top:10px;font-family:'DM Mono',monospace}
 .note span{color:#1a2233;font-weight:600}
 footer{text-align:center;padding:24px;font-size:11px;color:#9aa3b0;font-family:'DM Mono',monospace}
-
 .section-h{font-size:16px;font-weight:800;margin:26px 0 14px;color:#1a2233}
 .section-h:first-child{margin-top:0}
 .badge-closed{display:inline-block;background:#eef4fb;color:#185fa5;font-size:10px;font-weight:700;padding:3px 10px;border-radius:10px;margin-left:8px;vertical-align:middle}
-
+.neg{color:#c0392b}
 #toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:#1a2233;color:#fff;padding:12px 22px;border-radius:10px;font-size:13px;font-weight:600;opacity:0;pointer-events:none;transition:all .3s;z-index:999;box-shadow:0 10px 30px rgba(0,0,0,.25)}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 </style>
 </head>
 <body>
 
-<!-- ============ LOGIN ============ -->
 <div id="login-screen">
   <div class="lcard">
     <div class="lbadge">MD</div>
@@ -140,7 +131,6 @@ footer{text-align:center;padding:24px;font-size:11px;color:#9aa3b0;font-family:'
   </div>
 </div>
 
-<!-- ============ APP ============ -->
 <div id="app">
   <header>
     <div class="header-left">
@@ -148,15 +138,17 @@ footer{text-align:center;padding:24px;font-size:11px;color:#9aa3b0;font-family:'
       <div>
         <div class="brand-label">Auditoria Interna · Unidades Marcos Domingos</div>
         <div class="brand-title">Gestão Marylândia Domingos</div>
-        <div class="brand-sub">MM (Igapó/RN) &amp; BR 406 Comercial (RN) · JUNHO 2026</div>
+        <div class="brand-sub" id="brand-sub">MM (Igapó/RN) &amp; BR 406 Comercial (RN)</div>
       </div>
     </div>
     <div class="header-right">
-      <div class="status-pill"><span class="status-dot"></span>Mês encerrado · 30/30 dias registrados</div>
+      <div class="status-pill" id="status-pill"><span class="status-dot"></span><span id="status-text"></span></div>
       <button class="wa-btn" onclick="notifyCEO()">💬 Notificar CEO</button>
       <button class="logout-btn" onclick="doLogout()">Sair</button>
     </div>
   </header>
+
+  <div class="month-bar" id="month-bar"></div>
 
   <div class="tabs">
     <button class="tab-btn active" data-tab="vendas">Vendas Diárias</button>
@@ -168,38 +160,12 @@ footer{text-align:center;padding:24px;font-size:11px;color:#9aa3b0;font-family:'
 
   <main>
 
-    <!-- ===================== TAB 1: VENDAS DIÁRIAS ===================== -->
     <div class="tab-content active" id="tab-vendas">
-      <div class="kpi-grid">
-        <div class="kpi-card">
-          <div class="kpi-label">Litragem MTD (Total)</div>
-          <div class="kpi-value" id="kpi-lit-total">365.454 L</div>
-          <div class="kpi-sub">MM + BR406 · 30 dias</div>
-          <div class="kpi-badge">≈ 12.182 L/dia</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Lucro Bruto MTD (Total)</div>
-          <div class="kpi-value">R$ 480,2K</div>
-          <div class="kpi-sub">R$ 480.224,87</div>
-          <div class="kpi-badge green">≈ R$ 16.007/dia</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">MM · Margem R$/L</div>
-          <div class="kpi-value" style="color:#185fa5">R$ 1,45</div>
-          <div class="kpi-sub">150.599 L · R$ 218.287,31</div>
-          <div class="kpi-badge">Melhor margem da rede</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">BR406 · Margem R$/L</div>
-          <div class="kpi-value" style="color:#276749">R$ 1,22</div>
-          <div class="kpi-sub">214.855 L · R$ 261.937,56</div>
-          <div class="kpi-badge green">Maior volume da unidade</div>
-        </div>
-      </div>
+      <div class="kpi-grid" id="kpi-vendas"></div>
 
       <div class="two-col">
         <div class="card">
-          <div class="card-title">📊 Litragem Diária — MM vs BR406 <span class="badge-closed">Junho fechado</span></div>
+          <div class="card-title">📊 Litragem Diária — MM vs BR406 <span class="badge-closed" id="chart-badge"></span></div>
           <div class="chart-wrap">
             <div class="bars" id="chart-bars"></div>
           </div>
@@ -207,46 +173,18 @@ footer{text-align:center;padding:24px;font-size:11px;color:#9aa3b0;font-family:'
             <span><span class="sw" style="background:#185fa5"></span>MM (Igapó)</span>
             <span><span class="sw" style="background:#276749"></span>BR 406 Comercial</span>
           </div>
-          <div class="note">Pico: <span>12/06 (Sex) · 18.267 L</span> | Menor: <span>14/06 (Dom) · 5.704 L</span></div>
+          <div class="chart-detail" id="chart-detail">Passe o mouse ou toque nas barras para ver o detalhe de cada dia.</div>
+          <div class="note" id="chart-note"></div>
         </div>
 
         <div class="card">
-          <div class="card-title">🏆 Ranking do Mês</div>
-          <div class="rank-item">
-            <div>
-              <div class="rank-name"><span class="unit-dot dot-mm"></span>DOMINGOS MM</div>
-              <div class="rank-sub">150.599 L</div>
-            </div>
-            <div class="rank-val">
-              <div class="rank-lb">R$ 218.287,31</div>
-              <div class="rank-margin">R$ 1,45/L</div>
-            </div>
-          </div>
-          <div class="rank-item">
-            <div>
-              <div class="rank-name"><span class="unit-dot dot-br"></span>DOMINGOS BR 406</div>
-              <div class="rank-sub">214.855 L</div>
-            </div>
-            <div class="rank-val">
-              <div class="rank-lb">R$ 261.937,56</div>
-              <div class="rank-margin">R$ 1,22/L</div>
-            </div>
-          </div>
-          <div class="rank-item" style="margin-top:6px;border-top:2px solid #eef1f4;padding-top:12px">
-            <div>
-              <div class="rank-name">TOTAL REDE MD</div>
-              <div class="rank-sub">365.454 L</div>
-            </div>
-            <div class="rank-val">
-              <div class="rank-lb">R$ 480.224,87</div>
-              <div class="rank-margin">R$ 1,31/L médio</div>
-            </div>
-          </div>
+          <div class="card-title">🏆 Ranking do Período</div>
+          <div id="ranking-body"></div>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-title">📋 Detalhamento Diário — Junho/2026 (01 a 30)</div>
+        <div class="card-title" id="daily-table-title">📋 Detalhamento Diário</div>
         <div style="overflow-x:auto">
         <table>
           <thead>
@@ -258,240 +196,48 @@ footer{text-align:center;padding:24px;font-size:11px;color:#9aa3b0;font-family:'
             </tr>
           </thead>
           <tbody id="daily-table-body"></tbody>
-          <tfoot>
-            <tr class="bold-row">
-              <td colspan="2">TOTAL</td>
-              <td class="right">150.599,09 L</td>
-              <td class="right">R$ 211.680,71*</td>
-              <td class="right">214.854,84 L</td>
-              <td class="right">R$ 261.611,51*</td>
-              <td class="right">365.453,93 L</td>
-              <td class="right">R$ 473.292,22*</td>
-            </tr>
-          </tfoot>
+          <tfoot id="daily-table-foot"></tfoot>
         </table>
         </div>
-        <div class="note">* Soma dos relatórios diários. Os totais oficiais de Lucro Bruto (planilha "Meirinha") são <span>MM R$ 218.287,31</span> e <span>BR406 R$ 261.937,56</span> — pequena diferença de ajuste contábil de fechamento, planilha é a fonte oficial (ver aba Resultados).</div>
+        <div class="note" id="daily-table-note"></div>
       </div>
     </div>
 
-    <!-- ===================== TAB 2: RESULTADOS ===================== -->
     <div class="tab-content" id="tab-resultados">
-      <div class="section-h">Resultado do Período — 01 a 30/Junho/2026</div>
+      <div class="section-h" id="resultados-title">Resultado do Período</div>
       <div class="card">
         <div style="overflow-x:auto">
-        <table>
-          <thead>
-            <tr>
-              <th>Unidade</th><th class="right">Litragem</th><th class="right">Lucro Bruto</th>
-              <th class="right">Margem/Litro</th><th class="right">Desp. Fixas</th><th class="right">Desp. Variáveis</th>
-              <th class="right">Juros Comb.</th><th class="right">Taxas/Tarifas</th><th class="right">Sobra Planilha</th>
-              <th class="right">Lucro Líquido</th><th class="right">Capital</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="unit-dot dot-br"></span>BR 406</td>
-              <td class="right">214.855</td>
-              <td class="right">R$ 261.937,56</td>
-              <td class="right">R$ 1,22</td>
-              <td class="right">R$ 111.834,15</td>
-              <td class="right">R$ 48.397,56</td>
-              <td class="right">R$ -</td>
-              <td class="right">R$ 7.770,47</td>
-              <td class="right">R$ 354,22</td>
-              <td class="right" style="color:#276749;font-weight:700">R$ 94.289,60</td>
-              <td class="right" style="color:#4fc3f7;font-weight:700">R$ 1.011.372,34</td>
-            </tr>
-            <tr>
-              <td><span class="unit-dot dot-mm"></span>MM</td>
-              <td class="right">150.599</td>
-              <td class="right">R$ 218.287,31</td>
-              <td class="right">R$ 1,45</td>
-              <td class="right">R$ 110.613,81</td>
-              <td class="right">R$ 15.657,04</td>
-              <td class="right">R$ -</td>
-              <td class="right">R$ 8.159,93</td>
-              <td class="right">R$ 871,72</td>
-              <td class="right" style="color:#276749;font-weight:700">R$ 84.728,25</td>
-              <td class="right" style="color:#4fc3f7;font-weight:700">R$ 292.159,56</td>
-            </tr>
-            <tr class="bold-row">
-              <td>TOTAIS</td>
-              <td class="right">365.454</td>
-              <td class="right">R$ 480.224,87</td>
-              <td class="right">—</td>
-              <td class="right">R$ 222.447,96</td>
-              <td class="right">R$ 64.054,60</td>
-              <td class="right">R$ -</td>
-              <td class="right">R$ 15.930,40</td>
-              <td class="right">R$ 1.225,94</td>
-              <td class="right">R$ 179.017,85</td>
-              <td class="right">R$ 1.303.531,90</td>
-            </tr>
-          </tbody>
-        </table>
+        <table id="resultados-table"></table>
         </div>
       </div>
-
-      <div class="kpi-grid" style="margin-top:20px">
-        <div class="kpi-card">
-          <div class="kpi-label">Lucro Líquido Total</div>
-          <div class="kpi-value">R$ 179.017,85</div>
-          <div class="kpi-sub">37,3% do Lucro Bruto</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Despesas Totais</div>
-          <div class="kpi-value">R$ 302.432,96</div>
-          <div class="kpi-sub">Fixas + Variáveis + Taxas</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Capital Consolidado</div>
-          <div class="kpi-value">R$ 1,30M</div>
-          <div class="kpi-sub">BR406: R$ 1,01M · MM: R$ 292,2K</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Sobra Planilha</div>
-          <div class="kpi-value">R$ 1.225,94</div>
-          <div class="kpi-sub">Diferença de fechamento</div>
-        </div>
-      </div>
+      <div class="kpi-grid" id="kpi-resultados" style="margin-top:20px"></div>
     </div>
 
-    <!-- ===================== TAB 3: FIADO SÓCIO ===================== -->
     <div class="tab-content" id="tab-fiado">
-      <div class="section-h">Fiado Sócio — Junho/2026</div>
+      <div class="section-h" id="fiado-title">Fiado Sócio</div>
       <div class="card">
         <div style="overflow-x:auto">
-        <table>
-          <thead>
-            <tr><th>Unidade</th><th class="right">Retirada Caixa</th><th class="right">Meirinha</th><th class="right">Casa</th><th class="right">Totais</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="unit-dot dot-br"></span>BR406</td>
-              <td class="right">R$ -</td>
-              <td class="right">-R$ 14.205,09</td>
-              <td class="right">R$ 740.666,67</td>
-              <td class="right" style="font-weight:700">R$ 726.461,58</td>
-            </tr>
-            <tr>
-              <td><span class="unit-dot dot-mm"></span>MM</td>
-              <td class="right">R$ -</td>
-              <td class="right">R$ -</td>
-              <td class="right">R$ 63.600,00</td>
-              <td class="right" style="font-weight:700">R$ 63.600,00</td>
-            </tr>
-            <tr class="bold-row">
-              <td colspan="4">TOTAL FIADO</td>
-              <td class="right">R$ 790.061,58</td>
-            </tr>
-          </tbody>
-        </table>
+        <table id="fiado-table"></table>
         </div>
       </div>
-      <div class="kpi-grid">
-        <div class="kpi-card">
-          <div class="kpi-label">Total Fiado Sócio</div>
-          <div class="kpi-value">R$ 790.061,58</div>
-          <div class="kpi-sub">BR406 + MM</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Participação BR406</div>
-          <div class="kpi-value">92,0%</div>
-          <div class="kpi-sub">R$ 726.461,58 do total</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Participação MM</div>
-          <div class="kpi-value">8,0%</div>
-          <div class="kpi-sub">R$ 63.600,00 do total</div>
-        </div>
-      </div>
+      <div class="kpi-grid" id="kpi-fiado"></div>
     </div>
 
-    <!-- ===================== TAB 4: PREFEITURAS ===================== -->
     <div class="tab-content" id="tab-prefeituras">
-      <div class="section-h">Prefeituras — BR406 <span class="badge-closed">Específico da unidade</span></div>
+      <div class="section-h" id="prefeituras-title">Prefeituras — BR406 <span class="badge-closed">Específico da unidade</span></div>
       <div class="card">
         <div style="overflow-x:auto">
-        <table>
-          <thead>
-            <tr><th>Prefeitura</th><th class="right">Faturado</th><th class="right">Pago</th><th class="right">Em Aberto</th><th class="right">Mês Atual</th><th class="right">Total Fiado</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Ceará Mirim</td>
-              <td class="right">R$ 1.170.338,53</td>
-              <td class="right">R$ 1.100.076,52</td>
-              <td class="right">R$ 70.262,01</td>
-              <td class="right">R$ 249.877,68</td>
-              <td class="right" style="font-weight:700">R$ 320.139,69</td>
-            </tr>
-            <tr>
-              <td>Pureza</td>
-              <td class="right">R$ 424.261,33</td>
-              <td class="right">R$ 192.173,23</td>
-              <td class="right">R$ 232.088,10</td>
-              <td class="right">R$ 52.471,61</td>
-              <td class="right" style="font-weight:700">R$ 284.559,71</td>
-            </tr>
-            <tr>
-              <td>Ielmo Marinho</td>
-              <td class="right">R$ 618.794,04</td>
-              <td class="right">R$ 456.672,46</td>
-              <td class="right">R$ 162.121,58</td>
-              <td class="right">R$ 221.694,94</td>
-              <td class="right" style="font-weight:700">R$ 383.816,52</td>
-            </tr>
-            <tr class="bold-row">
-              <td>TOTAIS</td>
-              <td class="right">R$ 2.213.393,90</td>
-              <td class="right">R$ 1.748.922,21</td>
-              <td class="right">R$ 464.471,69</td>
-              <td class="right">R$ 524.044,23</td>
-              <td class="right">R$ 988.515,92</td>
-            </tr>
-          </tbody>
-        </table>
+        <table id="prefeituras-table"></table>
         </div>
       </div>
-      <div class="kpi-grid">
-        <div class="kpi-card">
-          <div class="kpi-label">Total Faturado</div>
-          <div class="kpi-value">R$ 2,21M</div>
-          <div class="kpi-sub">3 prefeituras</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">% Pago</div>
-          <div class="kpi-value" style="color:#1e7d4a">79,0%</div>
-          <div class="kpi-sub">R$ 1.748.922,21 / R$ 2.213.393,90</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Em Aberto</div>
-          <div class="kpi-value" style="color:#a67c00">R$ 464.471,69</div>
-          <div class="kpi-sub">Maior saldo: Pureza (R$ 232.088,10)</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Total Fiado</div>
-          <div class="kpi-value">R$ 988.515,92</div>
-          <div class="kpi-sub">Mês atual + em aberto acumulado</div>
-        </div>
-      </div>
+      <div class="kpi-grid" id="kpi-prefeituras"></div>
     </div>
 
-    <!-- ===================== TAB 5: TRANSF PESSOAL ===================== -->
     <div class="tab-content" id="tab-transf">
-      <div class="section-h">Transferências Pessoais — Junho/2026</div>
+      <div class="section-h" id="transf-title">Transferências Pessoais</div>
       <div class="card">
         <div style="overflow-x:auto">
-        <table>
-          <thead><tr><th>Unidade</th><th class="right">Valor</th></tr></thead>
-          <tbody>
-            <tr><td><span class="unit-dot dot-br"></span>BR406</td><td class="right" style="font-weight:700">R$ 53.700,00</td></tr>
-            <tr><td><span class="unit-dot dot-mm"></span>MM</td><td class="right" style="color:#9aa3b0">— (sem lançamentos)</td></tr>
-            <tr class="bold-row"><td>TOTAL</td><td class="right">R$ 53.700,00</td></tr>
-          </tbody>
-        </table>
+        <table id="transf-table"></table>
         </div>
         <div class="note">MM normalmente não apresenta lançamentos nesta categoria.</div>
       </div>
@@ -499,47 +245,381 @@ footer{text-align:center;padding:24px;font-size:11px;color:#9aa3b0;font-family:'
 
   </main>
 
-  <footer>📊 Dados: Sistema Gerencial · Base: 01–30/06/2026 (mês fechado) · Unidades MM e BR406 Comercial · RN</footer>
+  <footer id="footer-note"></footer>
 </div>
 
+<div id="chart-tooltip"></div>
 <div id="toast"></div>
 
 <script>
-const dailyData = [{"d": "01/06", "dow": "Seg", "mmLit": 2951.72, "mmLb": 2604.65, "brLit": 11440.85, "brLb": 14286.31, "totLit": 14392.57, "totLb": 16890.96}, {"d": "02/06", "dow": "Ter", "mmLit": 2987.02, "mmLb": 2578.5, "brLit": 8681.24, "brLb": 10563.65, "totLit": 11668.26, "totLb": 13142.15}, {"d": "03/06", "dow": "Qua", "mmLit": 5262.23, "mmLb": 6814.07, "brLit": 10121.29, "brLb": 12759.42, "totLit": 15383.52, "totLb": 19573.49}, {"d": "04/06", "dow": "Qui", "mmLit": 5034.38, "mmLb": 6237.37, "brLit": 4355.91, "brLb": 4855.0, "totLit": 9390.29, "totLb": 11092.37}, {"d": "05/06", "dow": "Sex", "mmLit": 5138.19, "mmLb": 6452.66, "brLit": 8196.29, "brLb": 9925.82, "totLit": 13334.48, "totLb": 16378.48}, {"d": "06/06", "dow": "Sáb", "mmLit": 4547.66, "mmLb": 5796.74, "brLit": 4408.79, "brLb": 4455.59, "totLit": 8956.45, "totLb": 10252.33}, {"d": "07/06", "dow": "Dom", "mmLit": 3529.44, "mmLb": 5124.12, "brLit": 2624.4, "brLb": 2140.38, "totLit": 6153.84, "totLb": 7264.5}, {"d": "08/06", "dow": "Seg", "mmLit": 6474.81, "mmLb": 10229.76, "brLit": 11518.95, "brLb": 13109.58, "totLit": 17993.76, "totLb": 23339.34}, {"d": "09/06", "dow": "Ter", "mmLit": 4139.97, "mmLb": 5905.81, "brLit": 8252.31, "brLb": 9889.23, "totLit": 12392.28, "totLb": 15795.04}, {"d": "10/06", "dow": "Qua", "mmLit": 4700.93, "mmLb": 8910.18, "brLit": 7996.76, "brLb": 10987.28, "totLit": 12697.69, "totLb": 19897.46}, {"d": "11/06", "dow": "Qui", "mmLit": 5082.72, "mmLb": 9996.67, "brLit": 9040.86, "brLb": 11459.92, "totLit": 14123.58, "totLb": 21456.59}, {"d": "12/06", "dow": "Sex", "mmLit": 8042.98, "mmLb": 14245.73, "brLit": 10224.39, "brLb": 12384.79, "totLit": 18267.37, "totLb": 26630.52}, {"d": "13/06", "dow": "Sáb", "mmLit": 7058.72, "mmLb": 11678.77, "brLit": 4863.1, "brLb": 5573.83, "totLit": 11921.82, "totLb": 17252.6}, {"d": "14/06", "dow": "Dom", "mmLit": 3349.49, "mmLb": 7263.55, "brLit": 2354.61, "brLb": 2331.46, "totLit": 5704.1, "totLb": 9595.01}, {"d": "15/06", "dow": "Seg", "mmLit": 5433.75, "mmLb": 10669.15, "brLit": 9825.05, "brLb": 12531.03, "totLit": 15258.8, "totLb": 23200.18}, {"d": "16/06", "dow": "Ter", "mmLit": 5021.55, "mmLb": 8287.51, "brLit": 8346.79, "brLb": 10704.5, "totLit": 13368.34, "totLb": 18992.01}, {"d": "17/06", "dow": "Qua", "mmLit": 4203.83, "mmLb": 6978.12, "brLit": 7193.39, "brLb": 8567.23, "totLit": 11397.22, "totLb": 15545.35}, {"d": "18/06", "dow": "Qui", "mmLit": 4340.67, "mmLb": 7134.85, "brLit": 8053.24, "brLb": 9414.92, "totLit": 12393.91, "totLb": 16549.77}, {"d": "19/06", "dow": "Sex", "mmLit": 4735.75, "mmLb": 7345.71, "brLit": 8535.85, "brLb": 9856.07, "totLit": 13271.6, "totLb": 17201.78}, {"d": "20/06", "dow": "Sáb", "mmLit": 4414.21, "mmLb": 5576.62, "brLit": 5582.29, "brLb": 5835.37, "totLit": 9996.5, "totLb": 11411.99}, {"d": "21/06", "dow": "Dom", "mmLit": 2611.28, "mmLb": 3213.57, "brLit": 3151.33, "brLb": 2837.02, "totLit": 5762.61, "totLb": 6050.59}, {"d": "22/06", "dow": "Seg", "mmLit": 5238.71, "mmLb": 7457.58, "brLit": 6890.36, "brLb": 7930.25, "totLit": 12129.07, "totLb": 15387.83}, {"d": "23/06", "dow": "Ter", "mmLit": 4007.63, "mmLb": 5883.46, "brLit": 9840.43, "brLb": 12222.55, "totLit": 13848.06, "totLb": 18106.01}, {"d": "24/06", "dow": "Qua", "mmLit": 5029.43, "mmLb": 7005.61, "brLit": 7491.99, "brLb": 9564.34, "totLit": 12521.42, "totLb": 16569.95}, {"d": "25/06", "dow": "Qui", "mmLit": 4158.99, "mmLb": 6036.41, "brLit": 7447.67, "brLb": 9770.24, "totLit": 11606.66, "totLb": 15806.65}, {"d": "26/06", "dow": "Sex", "mmLit": 6120.3, "mmLb": 7385.07, "brLit": 9903.37, "brLb": 14053.21, "totLit": 16023.67, "totLb": 21438.28}, {"d": "27/06", "dow": "Sáb", "mmLit": 7675.03, "mmLb": 5975.4, "brLit": 3726.82, "brLb": 5025.36, "totLit": 11401.85, "totLb": 11000.76}, {"d": "28/06", "dow": "Dom", "mmLit": 6537.68, "mmLb": 5048.21, "brLit": 3254.45, "brLb": 3938.23, "totLit": 9792.13, "totLb": 8986.44}, {"d": "29/06", "dow": "Seg", "mmLit": 7177.43, "mmLb": 6850.15, "brLit": 3640.46, "brLb": 4673.88, "totLit": 10817.89, "totLb": 11524.03}, {"d": "30/06", "dow": "Ter", "mmLit": 5592.59, "mmLb": 6994.71, "brLit": 7891.6, "brLb": 9965.05, "totLit": 13484.19, "totLb": 16959.76}];
+const monthsData = {"2026-06": {"key": "2026-06", "label": "Junho 2026", "shortLabel": "Jun/26", "status": "Mês encerrado · 30/30 dias registrados", "closed": true, "daysInMonth": 30, "daily": [{"d": "01/06", "dow": "Seg", "mmLit": 2951.72, "mmLb": 2604.65, "brLit": 11440.85, "brLb": 14286.31, "totLit": 14392.57, "totLb": 16890.96}, {"d": "02/06", "dow": "Ter", "mmLit": 2987.02, "mmLb": 2578.5, "brLit": 8681.24, "brLb": 10563.65, "totLit": 11668.26, "totLb": 13142.15}, {"d": "03/06", "dow": "Qua", "mmLit": 5262.23, "mmLb": 6814.07, "brLit": 10121.29, "brLb": 12759.42, "totLit": 15383.52, "totLb": 19573.49}, {"d": "04/06", "dow": "Qui", "mmLit": 5034.38, "mmLb": 6237.37, "brLit": 4355.91, "brLb": 4855.0, "totLit": 9390.29, "totLb": 11092.37}, {"d": "05/06", "dow": "Sex", "mmLit": 5138.19, "mmLb": 6452.66, "brLit": 8196.29, "brLb": 9925.82, "totLit": 13334.48, "totLb": 16378.48}, {"d": "06/06", "dow": "Sáb", "mmLit": 4547.66, "mmLb": 5796.74, "brLit": 4408.79, "brLb": 4455.59, "totLit": 8956.45, "totLb": 10252.33}, {"d": "07/06", "dow": "Dom", "mmLit": 3529.44, "mmLb": 5124.12, "brLit": 2624.4, "brLb": 2140.38, "totLit": 6153.84, "totLb": 7264.5}, {"d": "08/06", "dow": "Seg", "mmLit": 6474.81, "mmLb": 10229.76, "brLit": 11518.95, "brLb": 13109.58, "totLit": 17993.76, "totLb": 23339.34}, {"d": "09/06", "dow": "Ter", "mmLit": 4139.97, "mmLb": 5905.81, "brLit": 8252.31, "brLb": 9889.23, "totLit": 12392.28, "totLb": 15795.04}, {"d": "10/06", "dow": "Qua", "mmLit": 4700.93, "mmLb": 8910.18, "brLit": 7996.76, "brLb": 10987.28, "totLit": 12697.69, "totLb": 19897.46}, {"d": "11/06", "dow": "Qui", "mmLit": 5082.72, "mmLb": 9996.67, "brLit": 9040.86, "brLb": 11459.92, "totLit": 14123.58, "totLb": 21456.59}, {"d": "12/06", "dow": "Sex", "mmLit": 8042.98, "mmLb": 14245.73, "brLit": 10224.39, "brLb": 12384.79, "totLit": 18267.37, "totLb": 26630.52}, {"d": "13/06", "dow": "Sáb", "mmLit": 7058.72, "mmLb": 11678.77, "brLit": 4863.1, "brLb": 5573.83, "totLit": 11921.82, "totLb": 17252.6}, {"d": "14/06", "dow": "Dom", "mmLit": 3349.49, "mmLb": 7263.55, "brLit": 2354.61, "brLb": 2331.46, "totLit": 5704.1, "totLb": 9595.01}, {"d": "15/06", "dow": "Seg", "mmLit": 5433.75, "mmLb": 10669.15, "brLit": 9825.05, "brLb": 12531.03, "totLit": 15258.8, "totLb": 23200.18}, {"d": "16/06", "dow": "Ter", "mmLit": 5021.55, "mmLb": 8287.51, "brLit": 8346.79, "brLb": 10704.5, "totLit": 13368.34, "totLb": 18992.01}, {"d": "17/06", "dow": "Qua", "mmLit": 4203.83, "mmLb": 6978.12, "brLit": 7193.39, "brLb": 8567.23, "totLit": 11397.22, "totLb": 15545.35}, {"d": "18/06", "dow": "Qui", "mmLit": 4340.67, "mmLb": 7134.85, "brLit": 8053.24, "brLb": 9414.92, "totLit": 12393.91, "totLb": 16549.77}, {"d": "19/06", "dow": "Sex", "mmLit": 4735.75, "mmLb": 7345.71, "brLit": 8535.85, "brLb": 9856.07, "totLit": 13271.6, "totLb": 17201.78}, {"d": "20/06", "dow": "Sáb", "mmLit": 4414.21, "mmLb": 5576.62, "brLit": 5582.29, "brLb": 5835.37, "totLit": 9996.5, "totLb": 11411.99}, {"d": "21/06", "dow": "Dom", "mmLit": 2611.28, "mmLb": 3213.57, "brLit": 3151.33, "brLb": 2837.02, "totLit": 5762.61, "totLb": 6050.59}, {"d": "22/06", "dow": "Seg", "mmLit": 5238.71, "mmLb": 7457.58, "brLit": 6890.36, "brLb": 7930.25, "totLit": 12129.07, "totLb": 15387.83}, {"d": "23/06", "dow": "Ter", "mmLit": 4007.63, "mmLb": 5883.46, "brLit": 9840.43, "brLb": 12222.55, "totLit": 13848.06, "totLb": 18106.01}, {"d": "24/06", "dow": "Qua", "mmLit": 5029.43, "mmLb": 7005.61, "brLit": 7491.99, "brLb": 9564.34, "totLit": 12521.42, "totLb": 16569.95}, {"d": "25/06", "dow": "Qui", "mmLit": 4158.99, "mmLb": 6036.41, "brLit": 7447.67, "brLb": 9770.24, "totLit": 11606.66, "totLb": 15806.65}, {"d": "26/06", "dow": "Sex", "mmLit": 6120.3, "mmLb": 7385.07, "brLit": 9903.37, "brLb": 14053.21, "totLit": 16023.67, "totLb": 21438.28}, {"d": "27/06", "dow": "Sáb", "mmLit": 7675.03, "mmLb": 5975.4, "brLit": 3726.82, "brLb": 5025.36, "totLit": 11401.85, "totLb": 11000.76}, {"d": "28/06", "dow": "Dom", "mmLit": 6537.68, "mmLb": 5048.21, "brLit": 3254.45, "brLb": 3938.23, "totLit": 9792.13, "totLb": 8986.44}, {"d": "29/06", "dow": "Seg", "mmLit": 7177.43, "mmLb": 6850.15, "brLit": 3640.46, "brLb": 4673.88, "totLit": 10817.89, "totLb": 11524.03}, {"d": "30/06", "dow": "Ter", "mmLit": 5592.59, "mmLb": 6994.71, "brLit": 7891.6, "brLb": 9965.05, "totLit": 13484.19, "totLb": 16959.76}], "resultados": {"br406": {"lit": 214855, "lb": 261937.56, "margem": 1.22, "despFixas": 111834.15, "despVar": 48397.56, "juros": 0, "taxas": 7770.47, "sobra": 354.22, "ll": 94289.6, "capital": 1011372.34}, "mm": {"lit": 150599, "lb": 218287.31, "margem": 1.45, "despFixas": 110613.81, "despVar": 15657.04, "juros": 0, "taxas": 8159.93, "sobra": 871.72, "ll": 84728.25, "capital": 292159.56}, "totais": {"lit": 365454, "lb": 480224.87, "despFixas": 222447.96, "despVar": 64054.6, "juros": 0, "taxas": 15930.4, "sobra": 1225.94, "ll": 179017.85, "capital": 1303531.9}}, "fiado": {"br406": {"retiradaCaixa": 0, "meirinha": -14205.09, "casa": 740666.67, "total": 726461.58}, "mm": {"retiradaCaixa": 0, "meirinha": 0, "casa": 63600.0, "total": 63600.0}, "total": 790061.58}, "transf": {"br406": 53700.0, "mm": null, "total": 53700.0}, "prefeituras": {"hasJunAFaturar": false, "rows": [{"nome": "Ceará Mirim", "faturado": 1170338.53, "pago": 1100076.52, "aberto": 70262.01, "junAFaturar": 0, "mesAtual": 249877.68, "totalFiado": 320139.69}, {"nome": "Pureza", "faturado": 424261.33, "pago": 192173.23, "aberto": 232088.1, "junAFaturar": 0, "mesAtual": 52471.61, "totalFiado": 284559.71}, {"nome": "Ielmo Marinho", "faturado": 618794.04, "pago": 456672.46, "aberto": 162121.58, "junAFaturar": 0, "mesAtual": 221694.94, "totalFiado": 383816.52}], "totais": {"faturado": 2213393.9, "pago": 1748922.21, "aberto": 464471.69, "junAFaturar": 0, "mesAtual": 524044.23, "totalFiado": 988515.92}}}, "2026-07": {"key": "2026-07", "label": "Julho 2026", "shortLabel": "Jul/26", "status": "Em andamento · 6 dias registrados", "closed": false, "daysInMonth": 31, "daily": [{"d": "01/07", "dow": "Qua", "mmLit": 5909.22, "mmLb": 7635.42, "brLit": 9507.54, "brLb": 12959.04, "totLit": 15416.76, "totLb": 20594.46}, {"d": "02/07", "dow": "Qui", "mmLit": 5854.99, "mmLb": 8198.8, "brLit": 7370.03, "brLb": 9875.38, "totLit": 13225.02, "totLb": 18074.18}, {"d": "03/07", "dow": "Sex", "mmLit": 6713.31, "mmLb": 8470.22, "brLit": 8935.78, "brLb": 11757.1, "totLit": 15649.09, "totLb": 20227.32}, {"d": "04/07", "dow": "Sáb", "mmLit": 6546.99, "mmLb": 5972.45, "brLit": 4605.03, "brLb": 5728.69, "totLit": 11152.02, "totLb": 11701.14}, {"d": "05/07", "dow": "Dom", "mmLit": 4575.8, "mmLb": 4986.13, "brLit": 2937.69, "brLb": 3365.09, "totLit": 7513.49, "totLb": 8351.22}, {"d": "06/07", "dow": "Seg", "mmLit": 6715.09, "mmLb": 7449.02, "brLit": 6596.49, "brLb": 9144.96, "totLit": 13311.58, "totLb": 16593.98}], "resultados": {"br406": {"lit": 39953, "lb": 52685.97, "margem": 1.32, "despFixas": 57080.6, "despVar": 14235.38, "juros": 0, "taxas": 5661.54, "sobra": 0, "ll": -24291.55, "capital": 1011372.34}, "mm": {"lit": 36315, "lb": 42715.4, "margem": 1.18, "despFixas": 3383.01, "despVar": 5210.25, "juros": 0, "taxas": 46603.28, "sobra": 0, "ll": -12481.14, "capital": 292159.56}, "totais": {"lit": 76268, "lb": 95401.37, "despFixas": 60463.61, "despVar": 19445.63, "juros": 0, "taxas": 52264.82, "sobra": 0, "ll": -36772.69, "capital": 1303531.9}}, "fiado": {"br406": {"retiradaCaixa": 3010.0, "meirinha": 99633.67, "casa": 796622.67, "total": 899266.34}, "mm": {"retiradaCaixa": 46662.0, "meirinha": 0, "casa": 63600.0, "total": 110262.0}, "total": 1009528.34}, "transf": {"br406": 14650.0, "mm": null, "total": 14650.0}, "prefeituras": {"hasJunAFaturar": true, "rows": [{"nome": "Ceará Mirim", "faturado": 529985.11, "pago": 215699.07, "aberto": 314286.04, "junAFaturar": 0, "mesAtual": 72317.54, "totalFiado": 386603.58}, {"nome": "Pureza", "faturado": 473563.52, "pago": 192173.23, "aberto": 281390.29, "junAFaturar": 0, "mesAtual": 51838.7, "totalFiado": 333228.99}, {"nome": "Ielmo Marinho", "faturado": 314811.0, "pago": 153416.48, "aberto": 161394.52, "junAFaturar": 222724.92, "mesAtual": 54801.12, "totalFiado": 438920.56}], "totais": {"faturado": 1318359.63, "pago": 561288.78, "aberto": 757070.85, "junAFaturar": 222724.92, "mesAtual": 178957.36, "totalFiado": 1158753.13}}}};
+const monthKeys = Object.keys(monthsData).sort();
+let currentMonth = monthKeys[monthKeys.length - 1];
 
 function fmtL(v){return v.toLocaleString('pt-BR',{minimumFractionDigits:0,maximumFractionDigits:0})+' L';}
-function fmtR(v){return 'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function fmtR(v){
+  const neg = v<0;
+  const s = Math.abs(v).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+  return (neg?'-R$ ':'R$ ')+s;
+}
+function fmtM(v){return 'R$ '+ (Math.abs(v)/1000000>=1 ? (v/1000000).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})+'M' : (v/1000).toLocaleString('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1})+'K');}
 
-// Build daily table
-const tbody = document.getElementById('daily-table-body');
-dailyData.forEach(r=>{
-  const tr = document.createElement('tr');
-  tr.innerHTML = `<td>${r.d}</td><td>${r.dow}</td>
+function buildMonthBar(){
+  const bar = document.getElementById('month-bar');
+  bar.innerHTML = '';
+  monthKeys.forEach(k=>{
+    const m = monthsData[k];
+    const btn = document.createElement('button');
+    btn.className = 'month-btn' + (k===currentMonth?' active':'') + (!m.closed?' is-open':'');
+    btn.innerHTML = `<span class="dot"></span>${m.label}`;
+    btn.addEventListener('click',()=>{ currentMonth = k; renderAll(); });
+    bar.appendChild(btn);
+  });
+}
+
+function renderVendas(m){
+  const daily = m.daily;
+  const mmLit = daily.reduce((s,r)=>s+r.mmLit,0);
+  const mmLb = daily.reduce((s,r)=>s+r.mmLb,0);
+  const brLit = daily.reduce((s,r)=>s+r.brLit,0);
+  const brLb = daily.reduce((s,r)=>s+r.brLb,0);
+  const totLit = mmLit+brLit, totLb = mmLb+brLb;
+  const nDays = daily.length;
+
+  const oficial = m.resultados.totais;
+  const kpiEl = document.getElementById('kpi-vendas');
+  kpiEl.innerHTML = `
+    <div class="kpi-card">
+      <div class="kpi-label">Litragem ${m.closed?'Total':'MTD'}</div>
+      <div class="kpi-value">${fmtL(oficial.lit)}</div>
+      <div class="kpi-sub">MM + BR406 · ${nDays} dias</div>
+      <div class="kpi-badge">≈ ${fmtL(Math.round(oficial.lit/nDays))}/dia</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Lucro Bruto ${m.closed?'Total':'MTD'}</div>
+      <div class="kpi-value">${fmtM(oficial.lb)}</div>
+      <div class="kpi-sub">${fmtR(oficial.lb)}</div>
+      <div class="kpi-badge green">≈ ${fmtR(Math.round(oficial.lb/nDays))}/dia</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">MM · Margem R$/L</div>
+      <div class="kpi-value" style="color:#185fa5">R$ ${m.resultados.mm.margem.toFixed(2).replace('.',',')}</div>
+      <div class="kpi-sub">${fmtL(m.resultados.mm.lit)} · ${fmtR(m.resultados.mm.lb)}</div>
+      <div class="kpi-badge">${m.resultados.mm.margem >= m.resultados.br406.margem ? 'Melhor margem da rede' : 'Volume estável'}</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">BR406 · Margem R$/L</div>
+      <div class="kpi-value" style="color:#276749">R$ ${m.resultados.br406.margem.toFixed(2).replace('.',',')}</div>
+      <div class="kpi-sub">${fmtL(m.resultados.br406.lit)} · ${fmtR(m.resultados.br406.lb)}</div>
+      <div class="kpi-badge green">Maior volume da unidade</div>
+    </div>
+  `;
+
+  document.getElementById('chart-badge').textContent = m.closed ? 'Mês fechado' : 'Em andamento';
+  document.getElementById('daily-table-title').textContent = `📋 Detalhamento Diário — ${m.label} (01 a ${daily[daily.length-1].d.split('/')[0]})`;
+
+  const chartEl = document.getElementById('chart-bars');
+  chartEl.innerHTML = '';
+  const maxLit = Math.max(...daily.map(r=>r.totLit));
+  const tooltip = document.getElementById('chart-tooltip');
+  const detailEl = document.getElementById('chart-detail');
+
+  let peak = daily[0], low = daily[0];
+  daily.forEach(r=>{ if(r.totLit>peak.totLit) peak=r; if(r.totLit<low.totLit) low=r; });
+  document.getElementById('chart-note').innerHTML = `Pico: <span>${peak.d} (${peak.dow}) · ${fmtL(peak.totLit)}</span> | Menor: <span>${low.d} (${low.dow}) · ${fmtL(low.totLit)}</span>`;
+
+  daily.forEach(r=>{
+    const mmH = (r.mmLit/maxLit)*180;
+    const brH = (r.brLit/maxLit)*180;
+    const col = document.createElement('div');
+    col.className = 'bar-col';
+    col.innerHTML = `
+      <div class="bar-stack" style="height:${mmH+brH}px">
+        <div class="bar-mm" style="height:${mmH}px"></div>
+        <div class="bar-br" style="height:${brH}px"></div>
+      </div>
+      <div class="bar-label">${r.d.split('/')[0]}</div>`;
+
+    function showDetail(){
+      detailEl.innerHTML = `${r.d} (${r.dow}) — MM: <span>${fmtL(r.mmLit)} / ${fmtR(r.mmLb)}</span> &nbsp;|&nbsp; BR406: <span>${fmtL(r.brLit)} / ${fmtR(r.brLb)}</span> &nbsp;|&nbsp; Total: <span>${fmtL(r.totLit)} / ${fmtR(r.totLb)}</span>`;
+    }
+
+    col.addEventListener('mousemove', (e)=>{
+      showDetail();
+      tooltip.innerHTML = `
+        <div class="tt-day">${r.d} · ${r.dow}</div>
+        <div class="tt-row"><span><span class="sw" style="background:#185fa5"></span>MM</span><span>${fmtL(r.mmLit)} · ${fmtR(r.mmLb)}</span></div>
+        <div class="tt-row"><span><span class="sw" style="background:#276749"></span>BR406</span><span>${fmtL(r.brLit)} · ${fmtR(r.brLb)}</span></div>
+        <div class="tt-row" style="margin-top:4px;border-top:1px solid rgba(255,255,255,.2);padding-top:4px"><span>Total</span><span>${fmtL(r.totLit)} · ${fmtR(r.totLb)}</span></div>
+      `;
+      tooltip.style.left = (e.clientX + 14) + 'px';
+      tooltip.style.top = (e.clientY - 10) + 'px';
+      tooltip.classList.add('show');
+    });
+    col.addEventListener('mouseleave', ()=>{ tooltip.classList.remove('show'); });
+    col.addEventListener('click', ()=>{
+      document.querySelectorAll('.bar-col.selected').forEach(c=>c.classList.remove('selected'));
+      col.classList.add('selected');
+      showDetail();
+    });
+    col.addEventListener('touchstart', ()=>{
+      showDetail();
+      document.querySelectorAll('.bar-col.selected').forEach(c=>c.classList.remove('selected'));
+      col.classList.add('selected');
+    }, {passive:true});
+
+    chartEl.appendChild(col);
+  });
+
+  const rankEl = document.getElementById('ranking-body');
+  const mmMargem = m.resultados.mm.margem, brMargem = m.resultados.br406.margem;
+  const rows = [
+    {name:'DOMINGOS MM', dot:'dot-mm', lit:m.resultados.mm.lit, lb:m.resultados.mm.lb, margem:mmMargem},
+    {name:'DOMINGOS BR 406', dot:'dot-br', lit:m.resultados.br406.lit, lb:m.resultados.br406.lb, margem:brMargem}
+  ].sort((a,b)=>b.lb-a.lb);
+  rankEl.innerHTML = rows.map(r=>`
+    <div class="rank-item">
+      <div>
+        <div class="rank-name"><span class="unit-dot ${r.dot}"></span>${r.name}</div>
+        <div class="rank-sub">${fmtL(r.lit)}</div>
+      </div>
+      <div class="rank-val">
+        <div class="rank-lb">${fmtR(r.lb)}</div>
+        <div class="rank-margin">R$ ${r.margem.toFixed(2).replace('.',',')}/L</div>
+      </div>
+    </div>
+  `).join('') + `
+    <div class="rank-item" style="margin-top:6px;border-top:2px solid #eef1f4;padding-top:12px">
+      <div>
+        <div class="rank-name">TOTAL REDE MD</div>
+        <div class="rank-sub">${fmtL(oficial.lit)}</div>
+      </div>
+      <div class="rank-val">
+        <div class="rank-lb">${fmtR(oficial.lb)}</div>
+        <div class="rank-margin">R$ ${(oficial.lb/oficial.lit).toFixed(2).replace('.',',')}/L médio</div>
+      </div>
+    </div>
+  `;
+
+  const tbody = document.getElementById('daily-table-body');
+  tbody.innerHTML = daily.map(r=>`
+    <tr><td>${r.d}</td><td>${r.dow}</td>
     <td class="right">${fmtL(r.mmLit)}</td><td class="right">${fmtR(r.mmLb)}</td>
     <td class="right">${fmtL(r.brLit)}</td><td class="right">${fmtR(r.brLb)}</td>
-    <td class="right">${fmtL(r.totLit)}</td><td class="right">${fmtR(r.totLb)}</td>`;
-  tbody.appendChild(tr);
-});
+    <td class="right">${fmtL(r.totLit)}</td><td class="right">${fmtR(r.totLb)}</td></tr>
+  `).join('');
 
-// Build chart
-const maxLit = Math.max(...dailyData.map(r=>r.totLit));
-const chartEl = document.getElementById('chart-bars');
-dailyData.forEach(r=>{
-  const mmH = (r.mmLit/maxLit)*180;
-  const brH = (r.brLit/maxLit)*180;
-  const col = document.createElement('div');
-  col.className = 'bar-col';
-  col.title = `${r.d}: MM ${fmtL(r.mmLit)} / BR406 ${fmtL(r.brLit)}`;
-  col.innerHTML = `
-    <div class="bar-stack" style="height:${mmH+brH}px">
-      <div class="bar-mm" style="height:${mmH}px"></div>
-      <div class="bar-br" style="height:${brH}px"></div>
+  document.getElementById('daily-table-foot').innerHTML = `
+    <tr class="bold-row">
+      <td colspan="2">TOTAL (relatórios)</td>
+      <td class="right">${fmtL(mmLit)}</td><td class="right">${fmtR(mmLb)}</td>
+      <td class="right">${fmtL(brLit)}</td><td class="right">${fmtR(brLb)}</td>
+      <td class="right">${fmtL(totLit)}</td><td class="right">${fmtR(totLb)}</td>
+    </tr>
+  `;
+
+  const diffMM = m.resultados.mm.lb - mmLb;
+  const diffBR = m.resultados.br406.lb - brLb;
+  document.getElementById('daily-table-note').innerHTML =
+    `* Soma dos relatórios diários. Os totais oficiais de Lucro Bruto (planilha "Meirinha") são <span>MM ${fmtR(m.resultados.mm.lb)}</span> e <span>BR406 ${fmtR(m.resultados.br406.lb)}</span>` +
+    (Math.abs(diffMM)>50 || Math.abs(diffBR)>50 ? ` — pequena diferença de ajuste contábil de fechamento (planilha é a fonte oficial).` : ` — praticamente idêntico ao somatório diário.`);
+}
+
+function renderResultados(m){
+  document.getElementById('resultados-title').innerHTML = `Resultado do Período — ${m.label}`;
+  const r = m.resultados;
+  const rowUnit = (label, u, dotClass) => `
+    <tr>
+      <td><span class="unit-dot ${dotClass}"></span>${label}</td>
+      <td class="right">${fmtL(u.lit)}</td>
+      <td class="right">${fmtR(u.lb)}</td>
+      <td class="right">R$ ${u.margem.toFixed(2).replace('.',',')}</td>
+      <td class="right">${fmtR(u.despFixas)}</td>
+      <td class="right">${fmtR(u.despVar)}</td>
+      <td class="right">${u.juros ? fmtR(u.juros) : 'R$ -'}</td>
+      <td class="right">${fmtR(u.taxas)}</td>
+      <td class="right">${u.sobra ? fmtR(u.sobra) : 'R$ -'}</td>
+      <td class="right ${u.ll<0?'neg':''}" style="font-weight:700">${fmtR(u.ll)}</td>
+      <td class="right" style="color:#4fc3f7;font-weight:700">${fmtR(u.capital)}</td>
+    </tr>`;
+  document.getElementById('resultados-table').innerHTML = `
+    <thead><tr>
+      <th>Unidade</th><th class="right">Litragem</th><th class="right">Lucro Bruto</th>
+      <th class="right">Margem/Litro</th><th class="right">Desp. Fixas</th><th class="right">Desp. Variáveis</th>
+      <th class="right">Juros Comb.</th><th class="right">Taxas/Tarifas</th><th class="right">Sobra Planilha</th>
+      <th class="right">Lucro Líquido</th><th class="right">Capital</th>
+    </tr></thead>
+    <tbody>
+      ${rowUnit('BR 406', r.br406, 'dot-br')}
+      ${rowUnit('MM', r.mm, 'dot-mm')}
+      <tr class="bold-row">
+        <td>TOTAIS</td><td class="right">${fmtL(r.totais.lit)}</td><td class="right">${fmtR(r.totais.lb)}</td>
+        <td class="right">—</td><td class="right">${fmtR(r.totais.despFixas)}</td><td class="right">${fmtR(r.totais.despVar)}</td>
+        <td class="right">${r.totais.juros ? fmtR(r.totais.juros) : 'R$ -'}</td><td class="right">${fmtR(r.totais.taxas)}</td>
+        <td class="right">${r.totais.sobra ? fmtR(r.totais.sobra) : 'R$ -'}</td>
+        <td class="right ${r.totais.ll<0?'neg':''}">${fmtR(r.totais.ll)}</td><td class="right">${fmtR(r.totais.capital)}</td>
+      </tr>
+    </tbody>
+  `;
+
+  const despTotal = r.totais.despFixas + r.totais.despVar + r.totais.taxas;
+  document.getElementById('kpi-resultados').innerHTML = `
+    <div class="kpi-card">
+      <div class="kpi-label">Lucro Líquido Total</div>
+      <div class="kpi-value ${r.totais.ll<0?'neg':''}">${fmtR(r.totais.ll)}</div>
+      <div class="kpi-sub">${(r.totais.ll/r.totais.lb*100).toFixed(1).replace('.',',')}% do Lucro Bruto</div>
     </div>
-    <div class="bar-label">${r.d.split('/')[0]}</div>`;
-  chartEl.appendChild(col);
-});
+    <div class="kpi-card">
+      <div class="kpi-label">Despesas Totais</div>
+      <div class="kpi-value">${fmtR(despTotal)}</div>
+      <div class="kpi-sub">Fixas + Variáveis + Taxas</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Capital Consolidado</div>
+      <div class="kpi-value">${fmtM(r.totais.capital)}</div>
+      <div class="kpi-sub">BR406: ${fmtM(r.br406.capital)} · MM: ${fmtM(r.mm.capital)}</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">${m.closed ? 'Sobra Planilha' : 'Status do Período'}</div>
+      <div class="kpi-value">${m.closed ? fmtR(r.totais.sobra) : (m.daily.length + ' dias')}</div>
+      <div class="kpi-sub">${m.closed ? 'Diferença de fechamento' : 'Mês em andamento'}</div>
+    </div>
+  `;
+}
 
-// Login
+function renderFiado(m){
+  document.getElementById('fiado-title').textContent = `Fiado Sócio — ${m.label}`;
+  const f = m.fiado;
+  document.getElementById('fiado-table').innerHTML = `
+    <thead><tr><th>Unidade</th><th class="right">Retirada Caixa</th><th class="right">Meirinha</th><th class="right">Casa</th><th class="right">Totais</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="unit-dot dot-br"></span>BR406</td>
+        <td class="right">${f.br406.retiradaCaixa ? fmtR(f.br406.retiradaCaixa) : 'R$ -'}</td>
+        <td class="right">${f.br406.meirinha ? fmtR(f.br406.meirinha) : 'R$ -'}</td>
+        <td class="right">${fmtR(f.br406.casa)}</td>
+        <td class="right" style="font-weight:700">${fmtR(f.br406.total)}</td>
+      </tr>
+      <tr>
+        <td><span class="unit-dot dot-mm"></span>MM</td>
+        <td class="right">${f.mm.retiradaCaixa ? fmtR(f.mm.retiradaCaixa) : 'R$ -'}</td>
+        <td class="right">${f.mm.meirinha ? fmtR(f.mm.meirinha) : 'R$ -'}</td>
+        <td class="right">${fmtR(f.mm.casa)}</td>
+        <td class="right" style="font-weight:700">${fmtR(f.mm.total)}</td>
+      </tr>
+      <tr class="bold-row"><td colspan="4">TOTAL FIADO</td><td class="right">${fmtR(f.total)}</td></tr>
+    </tbody>
+  `;
+  document.getElementById('kpi-fiado').innerHTML = `
+    <div class="kpi-card">
+      <div class="kpi-label">Total Fiado Sócio</div>
+      <div class="kpi-value">${fmtR(f.total)}</div>
+      <div class="kpi-sub">BR406 + MM</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Participação BR406</div>
+      <div class="kpi-value">${(f.br406.total/f.total*100).toFixed(1).replace('.',',')}%</div>
+      <div class="kpi-sub">${fmtR(f.br406.total)} do total</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Participação MM</div>
+      <div class="kpi-value">${(f.mm.total/f.total*100).toFixed(1).replace('.',',')}%</div>
+      <div class="kpi-sub">${fmtR(f.mm.total)} do total</div>
+    </div>
+  `;
+}
+
+function renderPrefeituras(m){
+  document.getElementById('prefeituras-title').innerHTML = `Prefeituras — BR406 <span class="badge-closed">Específico da unidade</span>`;
+  const p = m.prefeituras;
+  const extraCol = p.hasJunAFaturar;
+  document.getElementById('prefeituras-table').innerHTML = `
+    <thead><tr>
+      <th>Prefeitura</th><th class="right">Faturado</th><th class="right">Pago</th><th class="right">Em Aberto</th>
+      ${extraCol ? '<th class="right">A Faturar</th>' : ''}
+      <th class="right">Mês Atual</th><th class="right">Total Fiado</th>
+    </tr></thead>
+    <tbody>
+      ${p.rows.map(row=>`
+        <tr>
+          <td>${row.nome}</td>
+          <td class="right">${fmtR(row.faturado)}</td>
+          <td class="right">${fmtR(row.pago)}</td>
+          <td class="right">${fmtR(row.aberto)}</td>
+          ${extraCol ? `<td class="right">${row.junAFaturar ? fmtR(row.junAFaturar) : 'R$ -'}</td>` : ''}
+          <td class="right">${fmtR(row.mesAtual)}</td>
+          <td class="right" style="font-weight:700">${fmtR(row.totalFiado)}</td>
+        </tr>
+      `).join('')}
+      <tr class="bold-row">
+        <td>TOTAIS</td>
+        <td class="right">${fmtR(p.totais.faturado)}</td>
+        <td class="right">${fmtR(p.totais.pago)}</td>
+        <td class="right">${fmtR(p.totais.aberto)}</td>
+        ${extraCol ? `<td class="right">${p.totais.junAFaturar ? fmtR(p.totais.junAFaturar) : 'R$ -'}</td>` : ''}
+        <td class="right">${fmtR(p.totais.mesAtual)}</td>
+        <td class="right">${fmtR(p.totais.totalFiado)}</td>
+      </tr>
+    </tbody>
+  `;
+  const maiorAberto = p.rows.reduce((a,b)=>b.aberto>a.aberto?b:a, p.rows[0]);
+  document.getElementById('kpi-prefeituras').innerHTML = `
+    <div class="kpi-card">
+      <div class="kpi-label">Total Faturado</div>
+      <div class="kpi-value">${fmtM(p.totais.faturado)}</div>
+      <div class="kpi-sub">${p.rows.length} prefeituras</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">% Pago</div>
+      <div class="kpi-value" style="color:#1e7d4a">${(p.totais.pago/p.totais.faturado*100).toFixed(1).replace('.',',')}%</div>
+      <div class="kpi-sub">${fmtR(p.totais.pago)} / ${fmtR(p.totais.faturado)}</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Em Aberto</div>
+      <div class="kpi-value" style="color:#a67c00">${fmtR(p.totais.aberto)}</div>
+      <div class="kpi-sub">Maior saldo: ${maiorAberto.nome} (${fmtR(maiorAberto.aberto)})</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Total Fiado</div>
+      <div class="kpi-value">${fmtR(p.totais.totalFiado)}</div>
+      <div class="kpi-sub">Mês atual + em aberto acumulado</div>
+    </div>
+  `;
+}
+
+function renderTransf(m){
+  document.getElementById('transf-title').textContent = `Transferências Pessoais — ${m.label}`;
+  const t = m.transf;
+  document.getElementById('transf-table').innerHTML = `
+    <thead><tr><th>Unidade</th><th class="right">Valor</th></tr></thead>
+    <tbody>
+      <tr><td><span class="unit-dot dot-br"></span>BR406</td><td class="right" style="font-weight:700">${fmtR(t.br406)}</td></tr>
+      <tr><td><span class="unit-dot dot-mm"></span>MM</td><td class="right" style="color:#9aa3b0">${t.mm ? fmtR(t.mm) : '— (sem lançamentos)'}</td></tr>
+      <tr class="bold-row"><td>TOTAL</td><td class="right">${fmtR(t.total)}</td></tr>
+    </tbody>
+  `;
+}
+
+function renderHeader(m){
+  document.getElementById('brand-sub').textContent = `MM (Igapó/RN) & BR 406 Comercial (RN) · ${m.label.toUpperCase()}`;
+  const pill = document.getElementById('status-pill');
+  pill.classList.toggle('open', !m.closed);
+  document.getElementById('status-text').textContent = m.status;
+  const lastDay = m.daily[m.daily.length-1].d;
+  document.getElementById('footer-note').textContent = `📊 Dados: Sistema Gerencial · Base: 01–${lastDay} · Unidades MM e BR406 Comercial · RN`;
+}
+
+function renderAll(){
+  buildMonthBar();
+  const m = monthsData[currentMonth];
+  renderHeader(m);
+  renderVendas(m);
+  renderResultados(m);
+  renderFiado(m);
+  renderPrefeituras(m);
+  renderTransf(m);
+}
+
 function doLogin(){
   const u = document.getElementById('user-input').value.trim();
   const p = document.getElementById('pass-input').value.trim();
@@ -547,6 +627,7 @@ function doLogin(){
     document.getElementById('login-screen').style.display='none';
     document.getElementById('app').style.display='block';
     document.getElementById('login-error').style.display='none';
+    renderAll();
   } else {
     document.getElementById('login-error').style.display='block';
   }
@@ -561,7 +642,6 @@ function doLogout(){
   document.getElementById('pass-input').value='';
 }
 
-// Tabs
 document.querySelectorAll('.tab-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{
     document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
@@ -571,9 +651,9 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
   });
 });
 
-// WhatsApp notify
 function notifyCEO(){
-  const msg = encodeURIComponent('Olá! O dashboard de Gestão Marylândia Domingos foi atualizado com os dados de Junho/2026 (mês fechado). Confira em: https://domingos-marylandia.netlify.app/');
+  const m = monthsData[currentMonth];
+  const msg = encodeURIComponent(`Olá! O dashboard de Gestão Marylândia Domingos foi atualizado com os dados de ${m.label}. Confira em: https://domingos-marylandia.netlify.app/`);
   window.open(`https://wa.me/5584981310151?text=${msg}`,'_blank');
   const t = document.getElementById('toast');
   t.textContent = '✓ WhatsApp aberto para envio à CEO';
